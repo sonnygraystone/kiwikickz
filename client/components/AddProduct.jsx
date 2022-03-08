@@ -1,8 +1,8 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { useDispatch} from 'react-redux'
 import * as Base64 from 'base64-arraybuffer'
-import { Button, Container, Form, Dropdown , Grid, Divider, Message} from 'semantic-ui-react'
+import { Button, Container, Form, Dropdown , Grid } from 'semantic-ui-react'
 import { options } from 'superagent'
 
 import {addProductThunk} from '../actions/products'
@@ -43,28 +43,16 @@ function AddProduct () {
   const [condition, setCondition] = useState('')
   const [sizeShoe, setSize] = useState('')
   const [genderShoe, setGender] = useState('')
-  const [sellerShoe, setSeller] = useState('')
-  const [priceError, setPriceError] = useState(null)
-  const [formError, setFormError] = useState(null)
-
   
   formData.color = JSON.stringify(colorArr)
   formData.condition = condition
   formData.size = sizeShoe
   formData.gender = genderShoe
-  formData.sellerId = sellerShoe
 
   //2. Component Functions
   const handleSubmit = (e) => {
     e.preventDefault()
-    if(formData.price == ''){
-      setPriceError({ content: 'Please enter a buy now price', pointing: 'below' })
-      setFormError(true)
-    }
-    else {
-      console.log(formData)
-      dispatch(addProductThunk(formData)).then((id) => {navigate(`/product/${id}`)})
-    }
+    dispatch(addProductThunk(formData)).then((id) => {navigate(`/product/${id}`)})
 }
 
   const handleChange = (e) => {
@@ -97,33 +85,6 @@ function AddProduct () {
     setColorArr(newArr)
   }
 
-  const friendOptions = [
-    {
-      key: 'Peter Farway',
-      text: 'Peter Farway',
-      value: 2,
-      image: { avatar: true, src: '/selleravatars/christian.jpeg' },
-    },
-    {
-      key: 'Pixie Smith',
-      text: 'Pixie Smith',
-      value: 3,
-      image: { avatar: true, src: '/selleravatars/stevie.jpeg' },
-    },
-    {
-      key: 'Seth Deth',
-      text: 'Seth Deth',
-      value: 4,
-      image: { avatar: true, src: '/selleravatars/justen.jpeg' },
-    },
-    {
-      key: 'Paul Naul',
-      text: 'Paul Naul',
-      value: 5,
-      image: { avatar: true, src: '/selleravatars/matt.jpeg' },
-    }
-  ]
-
   return (
     <>
     <Container>
@@ -132,28 +93,18 @@ function AddProduct () {
     <br/>
 
     <Container>
-      <Form onSubmit={handleSubmit} error={formError}>
+      <Form onSubmit={handleSubmit}>
+
        {/* Seller Input Field - and dropdown View */}
        <Form.Field>
         <label htmlFor='sellerId'>Seller ID: </label>
-        {/* <input id='sellerId' name='sellerId' type='number' onChange={handleChange} /> */}
-        <Dropdown
-          id='sellerId'
-          name='sellerId'
-          placeholder='Select seller'
-          fluid
-          selection
-          options={friendOptions}
-          onChange= {(e, data) => {setSeller(data.value)}}
-          value = {options.value}
-        />
-
+        <input id='sellerId' name='sellerId' type='number' onChange={handleChange} />
        </Form.Field>
 
        {/* Shoe Group of Fields */}
        <Form.Field>
         <label htmlFor='name'>Product Name: </label>
-        <input id='name' name='name' type='text' onChange={handleChange}/>
+        <input id='name' name='name' type='text' onChange={handleChange} />
         </Form.Field>
         <Form.Field>
         <label htmlFor='brand'>Brand: </label>
@@ -279,12 +230,10 @@ function AddProduct () {
         {/* <input id='condition' name='condition' type='text' onChange={handleChange} /> */}
         </Form.Field>
 
-        {/* <Form.Field>
+        <Form.Field>
         <label htmlFor='price'>Price: </label>
         <input id='price' name='price' type='number' onChange={handleChange} />
-        </Form.Field> */}
-        
-        <Form.Input id='price' name='price' type='number' fluid label='Price:' placeholder='Price' onChange={handleChange} error={priceError}/>
+        </Form.Field>
 
 
 
@@ -324,11 +273,6 @@ function AddProduct () {
         <label htmlFor='addImg4'>Image 4: </label>
         <input type='file' id='addImg4' name='image4' onChange={handleFileChange} />
         </Form.Field>
-        <Message
-          error
-          header='Action Forbidden'
-          content='You can only add a product once a price has been set.'
-        />
         <Button>Done!</Button>
       </Form>
       </Container>

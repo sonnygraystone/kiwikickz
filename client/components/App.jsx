@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react"
-import { Routes, Route, Link, useNavigate } from "react-router-dom"
+import { Routes, Route, useNavigate } from "react-router-dom"
 import Cart from './Cart'
 import Home from './Home'
 import Product from './Product'

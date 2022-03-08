@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
-import { Menu, Icon, Input, Header, Search, Grid, Segment } from 'semantic-ui-react'
+import { useSelector } from 'react-redux'
+import { Menu, Icon, Header, Search } from 'semantic-ui-react'
 import _ from 'lodash'
 
 //helper function to format the Prices in the pop-up cards
@@ -59,33 +59,16 @@ function Nav(props) {
   useEffect(() => {
 
     const productsFormated = products ? products.map(element => {
-      
-      let returnedItem = {}
-  
-      if(element.status == "available") {
-          returnedItem = {
-          title: element.name,
-          description: `${element.details}`.substring(0, 30),
-          image: `data:image/jpg;base64,${element.image1}`,
-          price: amount(element.price, 0, 100, 2, '$'),
-          id: element.id
-          }
+      return {
+        title: element.name,
+        description: `${element.details}`.substring(0, 30),
+        image: `data:image/jpg;base64,${element.image1}`,
+        price: amount(element.price, 0, 100, 2, '$'),
+        id: element.id
       }
-      else if(element.status == "sold") {
-          returnedItem = {
-          title: element.name,
-          description: 'UNAVAILABLE',
-          image: `data:image/jpg;base64,${element.image1}`,
-          price: <Header as='h5' color='red'>ITEM SOLD</Header>,//amount(element.price, 0, 100, 2, '$'),
-          id: element.id
-          }
-      }
-      return returnedItem
     }) : null
     source = productsFormated
   }, [products])
-
-
 
   const [state, dispatch] = React.useReducer(exampleReducer, initialState)
   const { loading, results, value } = state

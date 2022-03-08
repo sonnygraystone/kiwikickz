@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { Grid, Container, Checkbox, GridRow, GridColumn, Header, Radio } from 'semantic-ui-react'
+import { Grid, Checkbox, GridRow, GridColumn, Header, Radio } from 'semantic-ui-react'
 import { filters } from '../actions/products'
 
 
@@ -24,12 +24,12 @@ function FilterBrand() {
             <Checkbox onClick={() => { dispatch(filters({ key: 'brand', value: 'Adidas' })) }}/> - ADIDAS  
         </GridColumn>
         <GridColumn>
-            <Checkbox onClick={() => { dispatch(filters({ key: 'brand', value: 'Adidas' })) }}/>  - YEEZY  
+            <Checkbox onClick={() => { dispatch(filters({ key: 'brand', value: 'Yeezy' })) }}/>  - YEEZY  
         </GridColumn>
       </GridRow>
       <GridRow>
         <GridColumn>
-            <Checkbox onClick={() => { dispatch(filters({ key: 'brand', value: 'New Balance' })) }}/> - NB   
+            <Checkbox onClick={() => { dispatch(filters({ key: 'brand', value: 'Nb' })) }}/> - NB   
         </GridColumn>
         <GridColumn>
             <Checkbox onClick={() => { dispatch(filters({ key: 'brand', value: 'Reebok' })) }}/> - REEBOK  
