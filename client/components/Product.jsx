@@ -1,6 +1,5 @@
-import React, {useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux'
-import * as Base64 from 'base64-arraybuffer'
 import { useParams } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { Image, Container, Segment , Header, Divider , Grid} from 'semantic-ui-react'

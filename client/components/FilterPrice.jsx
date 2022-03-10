@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { Grid, Container, Checkbox, GridRow, GridColumn, Header, Radio } from 'semantic-ui-react'
+import { Grid, Checkbox, GridColumn } from 'semantic-ui-react'
 import { filters } from '../actions/products'
 
 

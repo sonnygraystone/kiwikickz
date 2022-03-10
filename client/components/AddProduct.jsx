@@ -1,8 +1,8 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { useDispatch} from 'react-redux'
 import * as Base64 from 'base64-arraybuffer'
-import { Button, Container, Form, Dropdown , Grid, Divider} from 'semantic-ui-react'
+import { Button, Container, Form, Dropdown , Grid } from 'semantic-ui-react'
 import { options } from 'superagent'
 
 import {addProductThunk} from '../actions/products'
