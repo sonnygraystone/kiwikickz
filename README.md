@@ -21,8 +21,13 @@ We offer sellers the ability to Authenticate their shoes using a Third-Party ser
 - [Redux](https://redux.js.org/)
 - [Express](https://expressjs.com/en/api.html)
 - [Knex.js (SQL)](https://knexjs.org/)
-- [Semantic UI)](https://react.semantic-ui.com/)
-- [Auth0)](https://auth0.com/)
+- [Semantic UI](https://react.semantic-ui.com/)
+- [Auth0](https://auth0.com/)
+- [Stripe](https://stripe.com/docs/js)
+- [dotenv](https://www.npmjs.com/package/dotenv)
+- [Body Parser](https://www.npmjs.com/package/body-parser)
+- [Chart JS](https://www.chartjs.org/)
+
 
 ## MVP
 On the homepage, as an unregistered user I can...<br>
@@ -92,6 +97,8 @@ npm start
 | type             | data     | purpose                                                 |
 | ---------------- | -------- | ------------------------------------------------------- |
 | GET_ALL_PRODUCTS | product  | retreive all products from the db and store in redux    |
+| ADD_ITEM         | product  | Add a product from the db and store in redux            |
+| REMOVE_ITEM.     | product  | Remove a product from the redux store.                  |
 <br>
 
 ## Reducers (Client Side)
@@ -107,6 +114,8 @@ npm start
 | Method | Endpoint                | Protected | Usage                          | Response                                          |
 | ------ | ----------------------- | --------- | ------------------------------ | ------------------------------------------------- |
 | Get    | /api/v1/product         | No        | Get All Products               | An Array Products                                 |
+| POST   | /api/v1/product         | No        | Add a product                  | A Product Object                                  |
+| DEL    | /api/v1/question        | No        | Delete a question              | Number of enrties delete                          |
 <br>
 
 ## DB (Server Side)
