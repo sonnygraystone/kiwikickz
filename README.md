@@ -22,7 +22,7 @@ We offer sellers the ability to Authenticate their shoes using a Third-Party ser
 - [Express](https://expressjs.com/en/api.html)
 - [Knex.js (SQL)](https://knexjs.org/)
 - [Semantic UI](https://react.semantic-ui.com/)
-- [Auth0)](https://auth0.com/)
+- [Auth0](https://auth0.com/)
 - [Stripe](https://stripe.com/docs/js)
 - [dotenv](https://www.npmjs.com/package/dotenv)
 - [Body Parser](https://www.npmjs.com/package/body-parser)
